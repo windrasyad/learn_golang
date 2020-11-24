@@ -14,14 +14,6 @@ import (
 
 var path = "status.json"
 
-func init() {
-	go writeFile()
-}
-
-func randomInt(min, max int) int {
-	return min + rand.Intn(max-min)
-}
-
 type Status struct {
 	Status struct {
 		Water int `json:"water"`
@@ -34,6 +26,14 @@ type Result struct {
 	WindSpeed   int    `json:"wind_speed"`
 	StatusWater string `json:"status_water"`
 	StatusWind  string `json:"status_wind"`
+}
+
+func init() {
+	go writeFile()
+}
+
+func randomInt(min, max int) int {
+	return min + rand.Intn(max-min)
 }
 
 func writeFile() {
